@@ -1,0 +1,7 @@
+<h1>Posts#index</h1>
+<p>Find me in app/views/posts/index.html.erb</p>
+<h1>List of All posts!</h1>
+<% @posts.each do |p|  %>
+<h4><strong>Post Title:</strong><%= p.title %></h4>
+<h4><strong>Post Text:</strong> <%= p.text %></h4>
+<% end %>
