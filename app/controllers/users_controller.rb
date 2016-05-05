@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
   private
 
-  def user_paramsv #something is broken here
+  def user_params #something is broken here
     params.require(:user).permit(:first_name, :last_name, :current_city, :email, :password)
   end
 
