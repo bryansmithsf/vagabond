@@ -8,5 +8,11 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   get "/logout", to: "sessions#destroy"
   post "/sessions", to: "sessions#create"
-
+  get "/posts", to: "posts#index", as: "posts"
+  get "/posts/:post_id", to:"posts#show", as: "post"
+  get "/posts/new", to:"posts#new", as: "post_new"
+  post "/posts", to:"posts#create"
+  get "/posts/edit", to: "posts#edit",as:"post_edit"
+  patch "/posts/:post_id", to:"posts#udpate"
+  delete "/posts/:post_id", to:"posts#destroy"
 end
