@@ -30,8 +30,8 @@ class PostsController < ApplicationController
     end
   end
   def update
-    @post = Library.find(params[:post_id])
-    @post.update(library_params)
+    @post = Post.find(params[:post_id])
+    @post.update(post_params)
     flash[:notice]="Post Succesfully Updated!"
     redirect_to post_path(@post)
   end

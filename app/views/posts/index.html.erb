@@ -2,6 +2,7 @@
 <p>Find me in app/views/posts/index.html.erb</p>
 <h1>List of All posts!</h1>
 <% @posts.each do |p|  %>
-<h4><strong>Post Title:</strong><%= p.title %></h4>
+<h4><strong>Post Title:</strong><%=link_to p.title, p %></h4>
 <h4><strong>Post Text:</strong> <%= p.text %></h4>
 <% end %>
+<%= link_to "Create New Post", post_new_path%>

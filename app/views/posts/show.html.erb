@@ -1,0 +1,7 @@
+<h1>Post Show Page!</h1>
+<h2><strong>Title: </strong> <%= @post.title %> </h2>
+<h2><strong>Text: </strong> <%= @post.text %> </h2>
+<%= link_to "Posts Index", posts_path %>
+<br>
+<%= link_to "Edit this Post", post_edit_path(@post) %>
+<%= button_to "Delete Post", @post, method: :delete, class: "btn btn-small btn-success" %>
