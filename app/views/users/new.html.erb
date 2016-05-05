@@ -1,6 +1,6 @@
 Sign Up
 
-<%= form_for @user do |f| %>
+<%= form_for :users, url: '/users' do |f| %>
   <div>
     <%= f.text_field :first_name, placeholder: "First Name" %>
   </div>
