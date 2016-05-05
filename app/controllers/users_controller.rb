@@ -12,8 +12,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    login(@user)
-    redirect_to @user
+    login(@user) # <-- login the user
+    redirect_to @user # <-- go to show
   end
 
   def show
@@ -23,8 +23,8 @@ class UsersController < ApplicationController
 
   private
 
-  def user_paramsv #something is broken here
-    params.require(:user).permit(:first_name, :last_name, :current_city, :email, :password)
+  def user_params #something is broken here
+    params.require(:users).permit(:first_name, :last_name, :current_city, :email, :password)
   end
 
 end
