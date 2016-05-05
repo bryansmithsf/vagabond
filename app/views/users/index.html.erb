@@ -1,34 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<h1>Welcome to Users Index.</h1>
 
-    <title>Bang Bang</title>
-
-    <!-- STYLESHEETS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/styles.css">
-
-    <!-- VENDOR SCRIPTS -->
-    <script src="https://code.jquery.com/jquery-2.2.3.js"   integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4="   crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
-
-    <!-- APPLICATION SCRIPTS -->
-    <script src="scripts/app.js"></script>
-  </head>
-  <body>
-    <ul class="nav nav-tabs">
-      <li role="presentation"><a href="/">Home</a></li>
-
-      <div class="loginNav pull-right">
-        <ul class="nav nav-tabs">
-          <li role="presentation"><a href="/login">Sign Up</a></li>
-          <li role="presentation"><a href="/login">Login</a></li>
-          <li role="presentation"><a href="/logout">Logout</a></li>
-        </ul>asdfasdfasdf
-      </div>
-    </ul>
-  </body>
-</html>
+<div>
+There are currently <%= @users.length %> signed_up
+</div>
