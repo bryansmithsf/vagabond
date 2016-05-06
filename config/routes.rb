@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   get "/logout", to: "sessions#destroy"
   post "/sessions", to: "sessions#create"
+
   get "/posts", to: "posts#index", as: "posts"
   get "/posts/new", to:"posts#new", as: "post_new"
   get "/posts/:post_id", to:"posts#show", as: "post"
@@ -15,4 +16,5 @@ Rails.application.routes.draw do
   get "/posts/:post_id/edit", to: "posts#edit",as:"post_edit"
   patch "/posts/:post_id", to:"posts#update"
   delete "/posts/:post_id", to:"posts#destroy"
+  
 end
