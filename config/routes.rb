@@ -26,4 +26,5 @@ Rails.application.routes.draw do
   get "/cities/:city_id/edit", to: "cities#edit",as:"city_edit"
   patch "/cities/:city_id", to:"cities#update"
   delete "/cities/:city_id", to:"cities#destroy"
+
 end
