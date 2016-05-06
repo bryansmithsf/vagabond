@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   post "/cities/:city_id/posts", to:"posts#create", as: "city_posts"
   get "/cities/:city_id/posts/:post_id", to:"post_cities#show", as:"city_post"
   get "/cities/:city_id/posts", to:"post_cities#index"
-  get "/cities/:city_id/posts/:post_id/edit", to:"post_cities#edit"
+  get "/cities/:city_id/posts/:post_id/edit", to:"post_cities#edit", as:"post_city_edit"
   patch "/cities/:city_id/posts/:post_id", to:"post_cities#update"
   delete "/cities/:city_id/posts/:post_id", to:"post_cities#destroy"
 end
