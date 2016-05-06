@@ -38,4 +38,7 @@
 </nav>
 <div>
   Welcome, <%= @user.email %>
+  <%= @user.first_name %>
+  <%= @user.last_name %>
+  <%= link_to "Edit User", user_edit_path %>
 </div>

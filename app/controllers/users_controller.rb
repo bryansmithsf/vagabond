@@ -21,10 +21,30 @@ class UsersController < ApplicationController
     render :show
   end
 
+  def edit
+    @user = User.find_by_id(params[:id])
+    if current_user==@user
+      render :edit
+    else
+      redirect_to users_path
+    end
+  end
+
+  def update
+    @user = User.find_by_id(params[:id])
+    if current_user==@user
+      @user.update(user_params)
+      flash[:notice] = "Successfully Edited!"
+      redirect_to @user
+    else
+      redirect_to users_path
+    end
+  end
+
   private
 
   def user_params #something is broken here
-    params.require(:users).permit(:first_name, :last_name, :current_city, :email, :password)
+    params.require(:user).permit(:first_name, :last_name, :current_city, :email, :password)
   end
 
 end

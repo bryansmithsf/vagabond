@@ -5,4 +5,7 @@ class User < ActiveRecord::Base
     @user = User.find_by({email: params[:email]})
     @user.try(:authenticate, params[:password])
   end
+
+  validates :email, uniqueness: true
+
 end
