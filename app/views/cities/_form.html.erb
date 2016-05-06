@@ -1,0 +1,10 @@
+<%= form_for @city do |f| %>
+  <div>
+    <%= f.text_field :name, placeholder: "City Name" %>
+  </div>
+  <div>
+    <%= f.text_field :image, placeholder: "City Image", size: "50x12"%>
+  </div>
+  <div>
+  <%= f.submit "Submit" %>
+<% end %>

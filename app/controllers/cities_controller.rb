@@ -46,7 +46,7 @@ class CitiesController < ApplicationController
     end
   end
   private
-  def post_params
-    params.require(:city).permit(:name,:image_url)
+  def city_params
+    params.require(:city).permit(:name,:image)
   end
 end

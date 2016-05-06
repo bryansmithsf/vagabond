@@ -18,4 +18,12 @@ Rails.application.routes.draw do
   get "/posts/:post_id/edit", to: "posts#edit",as:"post_edit"
   patch "/posts/:post_id", to:"posts#update"
   delete "/posts/:post_id", to:"posts#destroy"
+
+  get "/cities", to: "cities#index", as: "cities"
+  get "/cities/new", to:"cities#new", as: "city_new"
+  get "/cities/:city_id", to:"cities#show", as: "city"
+  post "/cities", to:"cities#create"
+  get "/cities/:city_id/edit", to: "cities#edit",as:"city_edit"
+  patch "/cities/:city_id", to:"cities#update"
+  delete "/cities/:city_id", to:"cities#destroy"
 end
