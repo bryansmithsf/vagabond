@@ -4,12 +4,6 @@ class PostCitiesController < ApplicationController
     @posts = @City.posts
     render :index
   end
-  def create
-    @post = Post.create(post_params)
-    @city = City.find(params[:city_id])
-    @city.posts.push(post)
-    redirect_to @city
-  end
   def show
     @city = City.find(params[:city_id])
     @posts = @city.posts
@@ -22,20 +16,14 @@ class PostCitiesController < ApplicationController
       render :new
     else
       flash[:notice]="You are not authenticated to create posts for this City!"
-      redirect to city_path(@city)
+      redirect to @city
     end
   end
   def create
     @city = City.find(params[:city_id])
     @post = Post.create(post_params)
     @city.posts << @post
-    redirect_to city_path(@city)
-  end
-  def update
-    @post = Post.find(params[:post_id])
-    @post.update(post_params)
-    @city = City.find(params[:city_id])
-    flash[:notice]="Post succesfully updated!"
+    @city.save
     redirect_to city_path(@city)
   end
   def edit
@@ -45,8 +33,15 @@ class PostCitiesController < ApplicationController
       render :edit
     else
       flash[:notice]="You are not authorized to edit posts!"
-      redirect_to city_path(@city)
+      redirect_to @city
     end
+  end
+  def update
+    @post = Post.find(params[:post_id])
+    @post.update(post_params)
+    @city = City.find(params[:city_id])
+    flash[:notice]="Post succesfully updated!"
+    redirect_to @city
   end
   def destroy
     @city = City.find(params[:city_id])
@@ -57,7 +52,7 @@ class PostCitiesController < ApplicationController
       redirect_to post_path(@post)
     else
       flash[:notice]="You are not authorized to delete Posts!"
-      redirect_to city_path(@city)
+      redirect_to @city
     end
   end
   private

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post "/sessions", to: "sessions#create"
 
   get "/posts", to: "posts#index", as: "posts"
-  get "/posts/new", to:"posts#new", as: "post_new"
+  get "/cities/:city_id/posts/new", to:"posts#new", as: "post_new"
   get "/posts/:post_id", to:"posts#show", as: "post"
   post "/posts", to:"posts#create"
   get "/posts/:post_id/edit", to: "posts#edit",as:"post_edit"
@@ -27,11 +27,11 @@ Rails.application.routes.draw do
   patch "/cities/:city_id", to:"cities#update"
   delete "/cities/:city_id", to:"cities#destroy"
 
-  get "/cities/:city_id/posts/new", to:"post_cities#new", as: "new_city_post"
+  get "/cities/:city_id/posts/new", to:"posts#new", as: "new_city_post"
+  post "/cities/:city_id/posts", to:"post_cities#create"
   get "/cities/:city_id/posts/:post_id", to:"post_cities#show", as:"post_city"
   get "/cities/:city_id/posts", to:"post_cities#index"
   get "/cities/:city_id/posts/:post_id/edit", to:"post_cities#edit"
   patch "/cities/:city_id/posts/:post_id", to:"post_cities#update"
-  post "/cities/:city_id/posts", to:"post_cities#create"
   delete "/cities/:city_id/posts/:post_id", to:"post_cities#destroy"
 end
