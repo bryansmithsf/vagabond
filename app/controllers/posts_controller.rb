@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   def new
     if current_user
       @post = Post.new
+      @city= City.find(params[:city_id])
       render :new
     else
       flash[:notice]="You are not authorized to create posts!"
@@ -14,8 +15,8 @@ class PostsController < ApplicationController
   end
   def create
     @user = current_user
-    @city = City.find(params[:city_id])
     @post = Post.create(post_params)
+    @city = City.find(params[:city_id])
     @user.posts << @post
     @city.posts << @post
     redirect_to city_path(@city)

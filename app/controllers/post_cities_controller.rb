@@ -23,7 +23,6 @@ class PostCitiesController < ApplicationController
     @city = City.find(params[:city_id])
     @post = Post.create(post_params)
     @city.posts << @post
-    @city.save
     redirect_to city_path(@city)
   end
   def edit
