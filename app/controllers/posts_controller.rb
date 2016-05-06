@@ -13,11 +13,14 @@ class PostsController < ApplicationController
     end
   end
   def create
+    @user = current_user
     @post = Post.create(post_params)
+    @user.posts << @post
     redirect_to posts_path
   end
   def show
     @post = Post.find(params[:post_id])
+    @user = @post.user
     render :show
   end
   def edit
