@@ -4,5 +4,7 @@
 <% @posts.each do |p|  %>
 <h4><strong>Post Title:</strong><%=link_to p.title, p %></h4>
 <h4><strong>Post Text:</strong> <%= p.text %></h4>
+created by <%=p.user %>
+<br>
 <% end %>
 <%= link_to "Create New Post", post_new_path%>

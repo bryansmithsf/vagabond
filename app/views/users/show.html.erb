@@ -32,7 +32,7 @@
         <button type="submit" class="btn btn-success">Sign in</button>
       </form>
       <% end %>
-      
+
     </div><!--/.navbar-collapse -->
   </div>
 </nav>
@@ -41,5 +41,13 @@
   <%# image_tag @user.avatar.url(:medium) %>
   <%= @user.first_name %>
   <%= @user.last_name %>
+  <br>
+  <h5>List of <%= @user.first_name %> Posts</h5>
+  <% @posts.each do |p| %>
+  <strong>TItle:</strong><%= p.title %>
+  <strong>Text:</strong><%= p.text %>
+  <br>
+  <% end %>
   <%= link_to "Edit User", user_edit_path %>
+
 </div>
