@@ -32,7 +32,7 @@
         <button type="submit" class="btn btn-success">Sign in</button>
       </form>
       <% end %>
-      
+
     </div><!--/.navbar-collapse -->
   </div>
 </nav>
@@ -41,5 +41,7 @@
   <%# image_tag @user.avatar.url(:medium) %>
   <%= @user.first_name %>
   <%= @user.last_name %>
+  <%= @user.current_city%>
+  
   <%= link_to "Edit User", user_edit_path %>
 </div>
