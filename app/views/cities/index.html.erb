@@ -1,0 +1,12 @@
+<h1>Welcome to Cities Index.</h1>
+<div>
+  There are currently <%= @cities.length %> cities in the database.
+</div>
+<% @cities.each do |c| %>
+City Name: <%=link_to c.name, city_path(c) %>
+<br>
+<img src="<%= c.image %>">
+<br>
+<% end %>
+<br>
+<%= link_to "Create New City", city_new_path%>
