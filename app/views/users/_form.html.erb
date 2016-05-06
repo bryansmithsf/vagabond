@@ -12,6 +12,9 @@
     <%= f.text_field :email, placeholder: "Email" %>
   </div>
   <div>
+    <%= f.file_field :avatar %>
+  </div>
+  <div>
     <%= f.password_field :password, placeholder: "Password" %>
   </div>
   <%= f.submit "Submit" %>

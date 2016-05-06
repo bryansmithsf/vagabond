@@ -1,5 +1,6 @@
 <div>
   Welcome, <%= @user.email %>
+  <%# image_tag @user.avatar.url(:medium) %>
   <%= @user.first_name %>
   <%= @user.last_name %>
   <%= link_to "Edit User", user_edit_path %>
