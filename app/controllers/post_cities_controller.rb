@@ -11,12 +11,12 @@ class PostCitiesController < ApplicationController
   end
   def new
     @post = Post.new
-    @city  =  City.find(params[:city_id])
+    @city = City.find(params[:city_id])
     if current_user
       render :new
     else
       flash[:notice]="You are not authenticated to create posts for this City!"
-      redirect to @city
+      redirect to city_path(@city)
     end
   end
   def create
@@ -48,7 +48,7 @@ class PostCitiesController < ApplicationController
       @post = Post.find(params[:post_id])
       @city.posts.destroy(@post)
       flash[:notice]="Succesfully deleted Post!"
-      redirect_to post_path(@post)
+      redirect_to @city
     else
       flash[:notice]="You are not authorized to delete Posts!"
       redirect_to @city

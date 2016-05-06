@@ -3,10 +3,15 @@ City Name: <%= @city.name %>
 <img src="<%= @city.image %>">
 <br>
 List of this City's Posts:
+<br>
 <% @posts.each do |post| %>
-  <%= post.title %>
-  <%= post.text %>
+  <strong>Title:</strong><%= post.title %>
+  <strong>Text:</strong><%= post.text %>
+  <%= button_to "Delete Post", [@city,post], method: :delete, class: "btn btn-small btn-danger" %>
+  <br>
 <% end %>
 <%= link_to "Edit City", city_edit_path %>
+<br>
 <%= link_to "Cities Index", cities_path %>
-<%= button_to "Delete City", @city, method: :delete, class: "btn btn-small btn-success" %>
+<br>
+<%= button_to "Delete City", @city, method: :delete, class: "btn btn-small btn-primary" %>

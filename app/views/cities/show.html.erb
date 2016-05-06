@@ -4,7 +4,7 @@ City Name: <%=@city.name %>
 <br>
 <h4>Posts</h4>
 <% @posts.each do |p| %>
-  <%= link_to p.title, city_post_path(p,@city) %>
+  <%= link_to p.title, city_post_path(@city,p) %>
   <%= p.text %>
   <br>
 <% end %>
