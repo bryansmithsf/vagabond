@@ -1,20 +1,24 @@
 Sign Up
 
-<%= form_for :users, url: '/users' do |f| %>
-  <div>
-    <%= f.text_field :first_name, placeholder: "First Name" %>
+<div class="col-md-10 col-md-offset-1">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for :users, url: '/users' do |f| %>
+      <div>
+        <%= f.text_field :first_name, placeholder: "First Name", class:"form-control" %>
+      </div>
+      <div>
+        <%= f.text_field :last_name, placeholder: "Last Name", class:"form-control" %>
+      </div>
+      <div>
+        <%= f.text_field :current_city, placeholder: "Current City", class:"form-control" %>
+      </div>
+      <div>
+        <%= f.text_field :email, placeholder: "Email", class:"form-control" %>
+      </div>
+      <div>
+        <%= f.password_field :password, placeholder: "Password", class:"form-control" %>
+      </div>
+      <%= f.submit "Sign Up", class: "btn btn-primary" %>
+    <% end %>
   </div>
-  <div>
-    <%= f.text_field :last_name, placeholder: "Last Name" %>
-  </div>
-  <div>
-    <%= f.text_field :current_city, placeholder: "Current City" %>
-  </div>
-  <div>
-    <%= f.text_field :email, placeholder: "Email" %>
-  </div>
-  <div>
-    <%= f.password_field :password, placeholder: "Password" %>
-  </div>
-  <%= f.submit "Sign Up" %>
-<% end %>
+</div>
