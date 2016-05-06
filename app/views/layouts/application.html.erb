@@ -24,7 +24,7 @@
             <li><%= link_to "Home", root_path %></li>
             <% if current_user %>
               <li><%= link_to "Profile", user_path(current_user) %></li>
-              <li><%= link_to "View Posts", posts_path %></li>
+              <li><%= link_to "View Posts", posts_path(@user) %></li>
               <li><%= link_to "View Cities", cities_path %></li>
               <li><%= link_to "Log Out", logout_path %></li>
             <% else %>
@@ -51,7 +51,7 @@
     </nav>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <%= render "partials/jumbotron"%>
+    <%= render "partials/jumbotron" %>
     <div class="container">
       <%= yield %>
 
