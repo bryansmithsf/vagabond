@@ -13,7 +13,6 @@ class PostCitiesController < ApplicationController
   def show
     @city = City.find(params[:city_id])
     @posts = @city.posts
-    @post = Post.find(params[:post_id])
     render :show
   end
   def new
@@ -34,7 +33,7 @@ class PostCitiesController < ApplicationController
   end
   def update
     @post = Post.find(params[:post_id])
-    @book.update(book_params)
+    @post.update(post_params)
     @city = City.find(params[:city_id])
     flash[:notice]="Post succesfully updated!"
     redirect_to city_path(@city)
@@ -57,7 +56,7 @@ class PostCitiesController < ApplicationController
       flash[:notice]="Succesfully deleted Post!"
       redirect_to post_path(@post)
     else
-      flash[:notice]="You are not authorized to delete Books!"
+      flash[:notice]="You are not authorized to delete Posts!"
       redirect_to city_path(@city)
     end
   end
