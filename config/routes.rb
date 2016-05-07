@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'comments/index'
+
+  get 'comment/index'
+
   root 'users#index'
   get "/users", to: "users#index", as: "users"
   get "/users/new", to: "users#new", as: "new_user"
@@ -28,10 +32,18 @@ Rails.application.routes.draw do
   delete "/cities/:city_id", to:"cities#destroy"
 
   get "/cities/:city_id/posts/new", to:"post_cities#new", as: "new_post"
-  post "/cities/:city_id/posts", to:"posts#create", as: "city_posts"
+  post "/cities/:city_id/posts", to:"post_cities#create", as: "city_posts"
   get "/cities/:city_id/posts/:post_id", to:"post_cities#show", as:"city_post"
   get "/cities/:city_id/posts", to:"post_cities#index"
   get "/cities/:city_id/posts/:post_id/edit", to:"post_cities#edit", as:"post_city_edit"
   patch "/cities/:city_id/posts/:post_id", to:"post_cities#update"
   delete "/cities/:city_id/posts/:post_id", to:"post_cities#destroy"
+
+  get "/cities/:city_id/posts/:post_id/comments", to:"comments#new", as: "new_comment"
+  post "/cities/:city_id/posts/:post_id/comments", to:"post_cities#create"
+  get "/cities/:city_id/posts/:post_id/comments/:comment_id", to:"post_cities#show", as:"comment"
+  get "/cities/:city_id/posts/:post_id/comment", to:"comments#index", as:"comments"
+  get "/cities/:city_id/posts/:post_id/comments/:comment_id/edit", to:"comments#edit", as:"comment_edit"
+  patch "/cities/:city_id/posts/:post_id/comments/:comment_id", to:"comments#update"
+  delete "/cities/:city_id/posts/:post_id/comments/:comment_id", to:"comments#destroy"
 end

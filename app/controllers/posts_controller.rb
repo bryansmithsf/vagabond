@@ -18,8 +18,8 @@ class PostsController < ApplicationController
     @user = current_user
     @post = Post.create(post_params)
     @city = City.find(params[:city_id])
-    @user.posts.unshift(@post)
-    @city.posts.unshift(@post)
+    @user.posts<<@post
+    @city.posts<<@post
     redirect_to city_path(@city)
   end
   def show
