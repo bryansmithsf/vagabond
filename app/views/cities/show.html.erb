@@ -10,9 +10,10 @@ List of this City's Posts:
   <strong>Written By:</strong><%= post.user %>
   <%= button_to "Delete Post", [@city,post], method: :delete, class: "btn btn-small btn-danger" %>
   <%= link_to "Edit Post", post_city_edit_path(@city,post),  :class=>"btn btn-small btn-warning" %>
-  <%= link_to "Create Post for this City", new_post_path(@city) %>
   <br>
 <% end %>
+<br>
+<%= link_to "Create Post for this City", new_post_path(@city) %>
 <br>
 <%= link_to "Edit City", city_edit_path %>
 <br>

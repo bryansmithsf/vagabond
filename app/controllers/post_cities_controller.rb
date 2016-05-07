@@ -2,7 +2,7 @@ class PostCitiesController < ApplicationController
   def index
     @city = City.find(params[:city_id])
     @posts = @City.posts
-    @posts = Post.all.paginate(:order => "created_at DESC",:page => params[:page],:per_page => 5)
+    @posts = Post.all.paginate(:order => "created_at DESC")
     render :index
   end
   def show
@@ -24,8 +24,8 @@ class PostCitiesController < ApplicationController
   def create
     @city = City.find(params[:city_id])
     @post = Post.create(post_params)
-    @city.posts.unshift(@post)
-    @city.posts.save
+    @city.posts << @post
+    @city.posts.reverse!
     redirect_to city_path(@city)
   end
   def edit
