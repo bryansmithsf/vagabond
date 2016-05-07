@@ -24,8 +24,8 @@
             <li><%= link_to "Home", root_path %></li>
             <% if current_user %>
               <li><%= link_to "Profile", user_path(current_user) %></li>
-              <li><%= link_to "Index of Posts", posts_path %></li>
-              <li><%= link_to "Index of Cities", cities_path %></li>
+              <li><%= link_to "View Posts", posts_path(@user) %></li>
+              <li><%= link_to "View Cities", cities_path %></li>
               <li><%= link_to "Log Out", logout_path %></li>
             <% else %>
               <li><%= link_to "Create Account", new_user_path %></li>
@@ -46,34 +46,22 @@
             </form>
           <% end %>
 
-          <!-- <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form> -->
-        </div><!--/.navbar-collapse -->
+        </div>
       </div>
     </nav>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <%= render "partials/jumbotron"%>
-    <div class="container">
+    <%= render "partials/jumbotron" %>
       <%= yield %>
 
-      <hr>
-      <% flash.each do |name, msg| %>
-      <p>
-        <small> <%= name.capitalize %>: <%= msg %> </small>
-      </p>
-      <% end %>
+      <div class="container">
+        <% flash.each do |name, msg| %>
+        <p>
+          <small> <%= name.capitalize %>: <%= msg %> </small>
+        </p>
 
-    </div> <!-- /container -->
-
-
+        <% end %>
+      </div>
     <%= render "partials/footer" %>
 </body>
 </html>
