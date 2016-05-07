@@ -47,9 +47,10 @@
   <%= @user.created_at %>
   <br>
   <h5>List of <%= @user.first_name %> Posts</h5>
+  <hr>
   <% @posts.each do |p| %>
-  <strong>TItle:</strong><%= p.title %>
-  <strong>Text:</strong><%= p.text %>
+  <strong>Title: </strong><%= link_to p.title, city_post_path(@city,p) %>
+  <strong>Text: </strong><%= p.text %>
   <br>
   <hr>
   <% end %>
