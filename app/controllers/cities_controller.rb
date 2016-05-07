@@ -18,6 +18,7 @@ class CitiesController < ApplicationController
   end
   def show
     @city = City.find(params[:city_id])
+    @posts = @city.posts
     render :show
   end
   def edit

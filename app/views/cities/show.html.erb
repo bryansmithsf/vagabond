@@ -1,6 +1,16 @@
 City Name: <%=@city.name %>
 <br>
 <img src="<%= @city.image %>">
+<br>
+<h4>Posts</h4>
+<% @posts.each do |p| %>
+  <%= link_to p.title, city_post_path(@city,p) %>
+  <%= p.text %>
+  <br>
+<% end %>
+<%= link_to "Create Post for this City", new_post_path %>
+<br>
 <%= link_to "Edit City", city_edit_path %>
+<br>
 <%= link_to "Cities Index", cities_path %>
 <%= button_to "Delete City", @city, method: :delete, class: "btn btn-small btn-success" %>
