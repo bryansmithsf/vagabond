@@ -4,4 +4,5 @@ puts "users created"
 
 City.create( name: "San Francisco", image: "http://www.sanfrancisco.travel/sites/sftraveldev.prod.acquia-sites.com/files/field/image/site-photo.jpg" )
 City.create( name: "London", image: "https://upload.wikimedia.org/wikipedia/commons/3/3a/London_from_a_hot_air_balloon.jpg")
+City.create( name: "Gibraltar", image: "")
 puts "Cities created"
