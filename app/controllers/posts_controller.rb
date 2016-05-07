@@ -1,8 +1,7 @@
 class PostsController < ApplicationController
   def index
     @users = User.all
-    @posts = Post.all
-    @posts.order(created_at: :desc)
+    @posts =  Post.all.order(created_at: :desc)
     render :index
   end
   def new
@@ -18,6 +17,7 @@ class PostsController < ApplicationController
     @user = current_user
     @post = Post.create(post_params)
     @user.posts << @post
+    @user.posts.order(created_at: :desc)
     redirect_to posts_path
   end
   def show
