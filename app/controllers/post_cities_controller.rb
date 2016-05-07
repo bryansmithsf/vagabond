@@ -2,11 +2,14 @@ class PostCitiesController < ApplicationController
   def index
     @city = City.find(params[:city_id])
     @posts = @City.posts
+    @city.posts.order(created_at: :desc)
     render :index
   end
   def show
     @city = City.find(params[:city_id])
-    @posts = @city.posts
+    @post = Post.find(params[:post_id])
+    @user = @post.user
+    # @comments = @post.comments
     render :show
   end
   def new
@@ -22,13 +25,17 @@ class PostCitiesController < ApplicationController
   def create
     @city = City.find(params[:city_id])
     @post = Post.create(post_params)
+    @user = current_user
     @city.posts << @post
+    @user.posts << @post
+    @city.posts.order(created_at: :desc)
     redirect_to city_path(@city)
   end
   def edit
     @city = City.find(params[:city_id])
     @post = Post.find(params[:post_id])
-    if current_user
+    @user = @post.user
+    if current_user==@user
       render :edit
     else
       flash[:notice]="You are not authorized to edit posts!"
@@ -44,8 +51,9 @@ class PostCitiesController < ApplicationController
   end
   def destroy
     @city = City.find(params[:city_id])
-    if current_user
-      @post = Post.find(params[:post_id])
+    @post = Post.find(params[:post_id])
+    @user = @post.user
+    if current_user==@user
       @city.posts.destroy(@post)
       flash[:notice]="Succesfully deleted Post!"
       redirect_to @city
