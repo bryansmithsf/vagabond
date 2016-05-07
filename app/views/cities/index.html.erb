@@ -5,7 +5,7 @@
 <% @cities.each do |c| %>
 City Name: <%=link_to c.name, city_path(c) %>
 <br>
-<img src="<%= c.image %>">
+<img class="img-responsive" src="<%= c.image %>">
 <br>
 <% end %>
 <br>
