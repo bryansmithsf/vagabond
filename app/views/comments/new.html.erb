@@ -1,0 +1,6 @@
+<%= form_for [@comment] do |f| %>
+  <div>
+    <%= f.text_area :body, placeholder: "Comment Body", size:"60x10" %>
+  </div>
+  <%= f.submit "Submit" %>
+<% end %>

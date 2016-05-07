@@ -3,6 +3,13 @@
   <strong>Title:</strong><%= @post.title %>
   <strong>Text:</strong><%= @post.text %>
   <strong>Written By:</strong><%= @user%>
+  <br>
+  <h4><strong>Comments:</strong> <% @comments.each do |c| %></h4>
+  <%= c.body %>
+  <br>
+  <% end %>
+  <br>
+  <%=  link_to "Add Comment", new_comment_path(@city,@post) %>
   <%= button_to "Delete Post", [@city,@post], method: :delete, class: "btn btn-small btn-danger" %>
   <%= link_to "Edit Post", post_city_edit_path(@city, @post),  :class=>"btn btn-small btn-warning" %>
   <br>

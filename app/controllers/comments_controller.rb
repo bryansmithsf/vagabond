@@ -20,17 +20,17 @@ class CommentsController < ApplicationController
     if current_user
       render :new
     else
-      flash[:notice]="You are not authenticated to create posts for this City!"
-      redirect to city_path(@city)
+      flash[:notice]="You are not authenticated to create comments for this City!"
+      redirect to city_post_path(@city,@post)
     end
   end
   def create
     @city = City.find(params[:city_id])
-    @post = Post.find(params[:post_params])
+    @post = Post.find(params[:post_id])
     @comment = Comment.create(comment_params)
     @post.comments << @comment
     # Post.all(:order=> "created at DESC")
-    redirect_to city_path(@city)
+    redirect_to @post
   end
   def edit
     @city = City.find(params[:city_id])
