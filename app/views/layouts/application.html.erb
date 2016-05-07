@@ -34,7 +34,7 @@
           </ul>
           <% if current_user == nil %>
             <form class="navbar-form navbar-right">
-              <%= form_for :user, url: "/sessions", method: "post" do |f| %>
+              <%= form_for @user, url: "/sessions", method: "post" do |f| %>
                 <div class="form-group">
                   <%= f.text_field :email, placeholder: "Email", class:"form-control" %>
                 </div>

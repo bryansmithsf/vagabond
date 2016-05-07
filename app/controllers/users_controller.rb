@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def index
+    @user=User.new
     @users = User.all
     render :index
   end
@@ -15,7 +16,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by_id(params[:id])
     @posts = @user.posts
-    render :show
+    if @user == current_user
+      render :show
+    else
+      redirect_to users_path
+    end
   end
   def edit
     @user = User.find_by_id(params[:id])

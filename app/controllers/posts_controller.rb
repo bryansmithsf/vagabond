@@ -1,13 +1,12 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
     @users = User.all
+    @posts =  Post.all.order(created_at: :desc)
     render :index
   end
   def new
     if current_user
       @post = Post.new
-      @city= City.find(params[:city_id])
       render :new
     else
       flash[:notice]="You are not authorized to create posts!"
@@ -17,10 +16,9 @@ class PostsController < ApplicationController
   def create
     @user = current_user
     @post = Post.create(post_params)
-    @city = City.find(params[:city_id])
-    @user.posts<<@post
-    @city.posts<<@post
-    redirect_to city_path(@city)
+    @user.posts << @post
+    @user.posts.order(created_at: :desc)
+    redirect_to posts_path
   end
   def show
     @post = Post.find(params[:post_id])
