@@ -19,7 +19,7 @@ class PostCitiesController < ApplicationController
       render :new
     else
       flash[:notice]="You are not authenticated to create posts for this City!"
-      redirect to city_path(@city)
+      redirect_to city_path(@city)
     end
   end
   def create

@@ -2,7 +2,7 @@
 <h3>Post Show Page</h3>
   <strong>Title:</strong><%= @post.title %>
   <strong>Text:</strong><%= @post.text %>
-  <strong>Written By:</strong><%= @user%>
+  <strong>Written By:</strong><%= @user.first_name %>
   <%= button_to "Delete Post", [@city,@post], method: :delete, class: "btn btn-small btn-danger" %>
   <%= link_to "Edit Post", post_city_edit_path(@city, @post),  :class=>"btn btn-small btn-warning" %>
   <br>
