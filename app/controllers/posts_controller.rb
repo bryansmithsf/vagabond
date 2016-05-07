@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+    @users = User.all
     render :index
   end
   def new
@@ -17,8 +18,8 @@ class PostsController < ApplicationController
     @user = current_user
     @post = Post.create(post_params)
     @city = City.find(params[:city_id])
-    @user.posts << @post
-    @city.posts << @post
+    @user.posts.unshift(@post)
+    @city.posts.unshift(@post)
     redirect_to city_path(@city)
   end
   def show

@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   patch "/cities/:city_id", to:"cities#update"
   delete "/cities/:city_id", to:"cities#destroy"
 
-  get "/cities/:city_id/posts/new", to:"posts#new", as: "new_post"
+  get "/cities/:city_id/posts/new", to:"post_cities#new", as: "new_post"
   post "/cities/:city_id/posts", to:"posts#create", as: "city_posts"
   get "/cities/:city_id/posts/:post_id", to:"post_cities#show", as:"city_post"
   get "/cities/:city_id/posts", to:"post_cities#index"
