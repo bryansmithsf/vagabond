@@ -2,7 +2,9 @@
   <div class="container">
     <h1>Hello, world!</h1>
     <p>Cold chicken claw xo spicy rice noodle roll honey glazed BBQ pork soy sauce chicken roast duck golden pumpkin fries soy sauce duck wings octopus seaweed sauteed string beans beef shank pork.</p>
+    <% if !current_user  %>
     <p><a class="btn btn-primary btn-lg" href="/users/new" role="button">Sign Up  &raquo;</a></p>
+    <% end %>
   </div>
 </div>
 <!-- Example row of columns -->
@@ -11,21 +13,21 @@
   <div>
     There are currently <%= @users.length %> signed_up
   </div>
-<div class="row">
-  <div class="col-md-4">
-    <h2>Heading</h2>
-    <p>Tofu with syrup Jin deui Chicken feet Potstickers stir fried radish cake. Beef shank pork spiced salt baked octopus Fung zao Ngao yuk kau Pai gwut Ma lai go Do fu fa. </p>
-    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+  <div class="row">
+    <div class="col-md-4">
+      <h2>Heading</h2>
+      <p>Tofu with syrup Jin deui Chicken feet Potstickers stir fried radish cake. Beef shank pork spiced salt baked octopus Fung zao Ngao yuk kau Pai gwut Ma lai go Do fu fa. </p>
+      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+      <h2>Heading</h2>
+      <p>Haam sui gau Jiu cai bau Zhaliang Pei guen Lo baak gou Taro cake Deep fried pumpkin and egg-yolk ball. Congee Shangai steam buns chicken feet mini egg tarts steamed sponge cake tofu with syrup Jin deui Chicken feet Potstickers stir fried radish cake. </p>
+      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+      <h2>Heading</h2>
+      <p>Deep fried seaweed roll BBQ pork puff Pan friend pork dumpling Pot sticker water chestnut cake bitter melon beef dumplings turnip cake leek dumplings deep fried taro turnover Cha siu sou. Black sesame soft ball deep fried bean curd skin rolls rice noodle roll deep fried crab claw soup dumpling cold chicken claw xo spicy rice noodle roll honey glazed BBQ pork soy sauce chicken.</p>
+      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    </div>
   </div>
-  <div class="col-md-4">
-    <h2>Heading</h2>
-    <p>Haam sui gau Jiu cai bau Zhaliang Pei guen Lo baak gou Taro cake Deep fried pumpkin and egg-yolk ball. Congee Shangai steam buns chicken feet mini egg tarts steamed sponge cake tofu with syrup Jin deui Chicken feet Potstickers stir fried radish cake. </p>
-    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
- </div>
-  <div class="col-md-4">
-    <h2>Heading</h2>
-    <p>Deep fried seaweed roll BBQ pork puff Pan friend pork dumpling Pot sticker water chestnut cake bitter melon beef dumplings turnip cake leek dumplings deep fried taro turnover Cha siu sou. Black sesame soft ball deep fried bean curd skin rolls rice noodle roll deep fried crab claw soup dumpling cold chicken claw xo spicy rice noodle roll honey glazed BBQ pork soy sauce chicken.</p>
-    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-  </div>
-</div>
 </div>
