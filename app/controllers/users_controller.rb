@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     redirect_to @user # <-- go to show
   end
   def show
+    @city = City.find(params[:id])
     @user = User.find_by_id(params[:id])
     @posts = @user.posts
     if @user == current_user
