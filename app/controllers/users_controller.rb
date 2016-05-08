@@ -17,7 +17,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @city = City.find(params[:id])
     @user = User.find(params[:id])
     @posts = @user.posts
     if @user == current_user

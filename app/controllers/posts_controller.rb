@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 
   def index
     @users = User.all
-    @posts =  Post.all.order(created_at: :desc)
+    @posts = Post.all.order(created_at: :desc)
     render :index
   end
 
