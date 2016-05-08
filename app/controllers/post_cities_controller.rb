@@ -56,7 +56,7 @@ class PostCitiesController < ApplicationController
     if current_user==@user
       @city.posts.destroy(@post)
       flash[:notice]="Succesfully deleted Post!"
-      redirect_to @city
+      redirect_to city_path(@city.id) 
     else
       flash[:notice]="You are not authorized to delete Posts!"
       redirect_to @city

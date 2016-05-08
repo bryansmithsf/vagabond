@@ -8,7 +8,7 @@ List of this City's Posts:
   <strong>Title:</strong><%=link_to post.title, city_post_path(@city,post) %>
   <strong>Text:</strong><%= post.text %>
   <strong>Written By:</strong><%= post.user.first_name %>
-  <%= button_to "Delete Post", [@city,post], method: :delete, class: "btn btn-small btn-danger" %>
+  <%= button_to 'Destroy', city_post_path(@city,post), :method => :delete, data: {:confirm=>'Are you sure you want to delete ?'}, class:"btn btn-danger" %>
   <%= link_to "Edit Post", post_city_edit_path(@city,post),  :class=>"btn btn-small btn-warning" %>
   <br>
 <% end %>
