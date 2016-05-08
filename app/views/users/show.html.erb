@@ -14,7 +14,7 @@
         <li><%= link_to "Home", root_path %></li>
         <% if current_user %>
           <li><%= link_to "Profile", user_path(current_user) %></li>
-          <li><%= link_to "View Posts", post_path(current_user) %></li>
+          <li><%= link_to "View Posts", posts_path %></li>
           <li><%= link_to "View Cities", cities_path %></li>
           <li><%= link_to "Log Out", logout_path %></li>
         <% else %>
@@ -43,14 +43,17 @@
   <%# image_tag @user.avatar.url(:medium) %>
   <%= @user.first_name %>
   <%= @user.last_name %>
+  <%= @user.current_city %>
+  <%= @user.created_at %>
   <br>
   <h5>List of <%= @user.first_name %> Posts</h5>
+  <hr>
   <% @posts.each do |p| %>
-  <strong>TItle:</strong><%= p.title %>
-  <strong>Text:</strong><%= p.text %>
+  <strong>Title: </strong><%= link_to p.title, post_path(p) %>
+  <strong>Text: </strong><%= p.text %>
   <br>
+  <hr>
   <% end %>
   <%= @user.current_city%>
   <%= link_to "Edit User", user_edit_path %>
-
 </div>

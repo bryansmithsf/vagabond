@@ -3,10 +3,6 @@
   There are currently <%= @cities.length %> cities in the database.
 </div>
 <% @cities.each do |c| %>
+<img class="img-responsive" src="<%= c.image %>">
 City Name: <%=link_to c.name, city_path(c) %>
-<br>
-<img src="<%= c.image %>">
-<br>
 <% end %>
-<br>
-<%= link_to "Create New City", city_new_path%>

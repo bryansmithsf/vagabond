@@ -1,16 +1,19 @@
-City Name: <%=@city.name %>
-<br>
-<img src="<%= @city.image %>">
-<br>
-<h4>Posts</h4>
-<% @posts.each do |p| %>
-  <%= link_to p.title, city_post_path(@city,p) %>
-  <%= p.text %>
-  <br>
+<h1><%=@city.name %></h1>
+
+<img class="img-responsive" src="<%= @city.image %>">
+
+<h4>See what people are saying about <%=@city.name%></h4>
+<ul>
+<% @posts.each do |post| %>
+  <h3> <%=link_to post.title, city_post_path(@city,post)%> </h3>
+  <%= post.text %>
+  <strong>Written By:</strong><%= post.user.first_name %>
+  <%= button_to 'Destroy', city_post_path(@city,post), :method => :delete, data: {:confirm=>'Are you sure you want to delete ?'}, class:"btn btn-danger" %>
+  <%= link_to "Edit Post", post_city_edit_path(@city,post),  :class=>"btn btn-small btn-warning" %>
 <% end %>
-<%= link_to "Create Post for this City", new_post_path %>
-<br>
+</ul>
+
+<%= button_to "Add New Post", new_post_path, :method => "get", class: "btn-small btn-warning" %>
 <%= link_to "Edit City", city_edit_path %>
-<br>
 <%= link_to "Cities Index", cities_path %>
-<%= button_to "Delete City", @city, method: :delete, class: "btn btn-small btn-success" %>
+<%= button_to "Delete City", @city, method: :delete, class: "btn btn-small btn-primary" %>

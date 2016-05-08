@@ -1,21 +1,16 @@
-City Name: <%= @city.name %>
-<br>
-<img src="<%= @city.image %>">
-<br>
-List of this City's Posts:
-<br>
-<% @posts.each do |post| %>
-  <strong>Title:</strong><%= post.title %>
-  <strong>Text:</strong><%= post.text %>
-  <%= button_to "Delete Post", [@city,post], method: :delete, class: "btn btn-small btn-danger" %>
-  <%= link_to "Edit Post", post_city_edit_path(@city,post),  :class=>"btn btn-small btn-warning" %>
+
+<h3>Post Show Page</h3>
+  <strong>Title:</strong><%= @post.title %>
+  <strong>Text:</strong><%= @post.text %>
+  <strong>Written By:</strong><%= @user.first_name %>
+  <%= button_to "Delete Post", [@city, @post],method: :delete, class: "btn btn-small btn-danger" %>
+  <%= link_to "Edit Post", post_city_edit_path(@city, @post),  :class=>"btn btn-small btn-warning" %>
   <br>
-<% end %>
 <br>
 <%= link_to "Create Post for this City", new_post_path %>
 <br>
-<%= link_to "Edit City", city_edit_path %>
+<%= link_to "Edit City", city_edit_path ,:class => "btn btn-small btn-info"%>
 <br>
-<%= link_to "Cities Index", cities_path %>
+<%= link_to "Cities Index", cities_path, :class=> "btn btn-small btn-success" %>
 <br>
 <%= button_to "Delete City", @city, method: :delete, class: "btn btn-small btn-primary" %>
