@@ -51,6 +51,8 @@
   <% @posts.each do |p| %>
   <strong>Title: </strong><%= link_to p.title, post_path(p) %>
   <strong>Text: </strong><%= p.text %>
+  <%= button_to "Delete Post", p, method: :delete, class: "btn btn-small btn-primary" %>
+
   <br>
   <hr>
   <% end %>
