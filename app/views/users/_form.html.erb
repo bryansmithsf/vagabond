@@ -1,21 +1,23 @@
+<div class="col-md-6 col-md-offset-3">
 <%= form_for @user do |f| %>
   <div>
-    <%= f.text_field :first_name, placeholder: "First Name" %>
+    <%= f.text_field :first_name, placeholder: "First Name", class:"form-control" %>
   </div>
   <div>
-    <%= f.text_field :last_name, placeholder: "Last Name" %>
+    <%= f.text_field :last_name, placeholder: "Last Name", class:"form-control" %>
   </div>
   <div>
-    <%= f.text_field :current_city, placeholder: "Current City" %>
+    <%= f.text_field :current_city, placeholder: "Current City", class:"form-control" %>
   </div>
   <div>
-    <%= f.text_field :email, placeholder: "Email" %>
+    <%= f.text_field :email, placeholder: "Email", class:"form-control" %>
   </div>
   <div>
-    <%= f.file_field :avatar %>
+    <%= f.file_field :avatar, class:"form-control" %>
   </div>
   <div>
-    <%= f.password_field :password, placeholder: "Password" %>
+    <%= f.password_field :password, placeholder: "Password", class:"form-control" %>
   </div>
-  <%= f.submit "Submit" %>
+  <%= f.submit "Submit", class:"form-control btn btn-primary" %>
 <% end %>
+</div>
