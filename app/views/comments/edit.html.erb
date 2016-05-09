@@ -1,0 +1,6 @@
+<%= form_for [@city,@post,@comment] do |f| %>
+  <div>
+    <%= f.text_area :body, placeholder: "Comment Body", size:"60x10" %>
+  </div>
+  <%= f.submit "Submit", formaction:comment_update_path(@city,@post,@comment) %>
+<% end %>
