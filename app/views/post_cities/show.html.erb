@@ -5,7 +5,8 @@
   <strong>Written By:</strong><%= @user.first_name %>
   <h4><strong>Comments:</strong> <% @comments.each do |c| %></h4>
     <%= c.body %>
-    <%= button_to "Delete Comment", @comment, method: :delete, class: "btn btn-small btn-secondary" %>
+    <%= button_to "Delete Comment", comment_destroy_path(@city,@post,c), method: :delete, class: "btn btn-small btn-secondary" %>
+    <%= button_to "Edit Comment", city_post_comment_path(@city,@post,c), method: :get, class: "btn btn-small btn-warning" %>
       <br>
       <% end %>
       <br>

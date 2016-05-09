@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
   def show
     @city = City.find(params[:city_id])
     @post = Post.find(params[:comment_id])
-    @comment = Comment.find(params[:comment_id])
+    @comment = Post.comments.find(params[:comment_id])
     @user=@comment.user
     render :show
   end
@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
   def create
     @city = City.find(params[:city_id])
     @post = Post.find(params[:post_id])
-    @comment = Comment.create(comment_params)
+    @comment = @post.comments.create(comment_params)
     @post.comments << @comment
     # Post.all(:order=> "created at DESC")
     redirect_to city_post_path(@city,@post)
@@ -35,33 +35,33 @@ class CommentsController < ApplicationController
   def edit
     @city = City.find(params[:city_id])
     @post = Post.find(params[:post_id])
-    @comment = Comment.find(params[:comment_id])
+    @comment = @post.comments.find(params[:comment_id])
     if current_user
       render :edit
     else
-      flash[:notice]="You are not authorized to edit posts!"
-      redirect_to @city
+      flash[:notice]="You are not authorized to edit comments!"
+      redirect_to city_post_path(@city,@post)
     end
   end
   def update
-    @comment = Comment.find(params[:comment_id])
-    @comment.update(comment_params)
     @post = Post.find(params[:post_id])
     @city = City.find(params[:city_id])
+    @comment = Comment.find(params[:comment_id])
+    @comment.update(comment_params)
     flash[:notice]="Comment succesfully updated!"
-    redirect_to @city
+    redirect_to city_post_path(@city,@post)
   end
   def destroy
     @city = City.find(params[:city_id])
-    @comment = Comment.find(params[:comment_id])
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:comment_id])
     if current_user
-      @post = Post.find(params[:post_id])
       @post.comments.destroy(@comment)
       flash[:notice]="Succesfully deleted Post!"
-      redirect_to @city
+      redirect_to city_post_path(@city,@post)
     else
       flash[:notice]="You are not authorized to delete Posts!"
-      redirect_to @city
+      redirect_to city_post_path(@city,@post)
     end
   end
   private

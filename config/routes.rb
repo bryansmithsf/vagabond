@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   post "/cities/:city_id/posts/:post_id/comments", to:"comments#create"
   get "/cities/:city_id/posts/:post_id/comments/:comment_id", to:"comments#show", as:"comment"
   get "/cities/:city_id/posts/:post_id/comments", to:"comments#index", as:"comments"
-  get "/cities/:city_id/posts/:post_id/comments/:comment_id/edit", to:"comments#edit", as:"comment_edit"
-  patch "/cities/:city_id/posts/:post_id/comments/:comment_id", to:"comments#update"
-  delete "/cities/:city_id/posts/:post_id/comments/:comment_id", to:"comments#destroy"
+  get "/cities/:city_id/posts/:post_id/comments/:comment_id/edit", to:"comments#edit", as:"city_post_comment"
+  patch "/cities/:city_id/posts/:post_id/comments/:comment_id", to:"comments#update", as:"comment_update"
+  delete "/cities/:city_id/posts/:post_id/comments/:comment_id", to:"comments#destroy", as:"comment_destroy"
 end
