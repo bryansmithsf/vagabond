@@ -35,7 +35,7 @@
     <!-- <h3><p>Post for <%= @user.current_city%></p></h3> -->
     <h3>Title: <%= link_to p.title, city_post_path(p.city_id,p) %></h3>
     <article><p><%= p.text %></article></p>
-    <%= button_to 'Delete Post', post_destroy_path(p.city, p), :method => :delete, data: {:confirm=>'Are you sure you want to delete '+p.title+'?'}, class:"btn btn-danger" %>
+    <%= button_to 'Delete Post', post_city_destroy_path(p.city, p), :method => :delete, data: {:confirm=>'Are you sure you want to delete '+p.title+'?'}, class:"btn btn-danger" %>
     <%= link_to "Edit Post", post_city_edit_path(p.city, p), class:"btn btn-info" %>
     <hr>
     <% end %>

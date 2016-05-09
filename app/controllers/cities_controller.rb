@@ -3,6 +3,7 @@ class CitiesController < ApplicationController
     @cities = City.all
     render :index
   end
+
   def new
     if current_user
       @city = City.new
@@ -12,15 +13,18 @@ class CitiesController < ApplicationController
       redirect_to cities_path
     end
   end
+
   def create
     @city = City.create(city_params)
     redirect_to cities_path
   end
+
   def show
     @city = City.find(params[:city_id])
     @posts = @city.posts.order(created_at: :desc)
     render :show
   end
+
   def edit
     if current_user
       @city = City.find(params[:city_id])
@@ -30,12 +34,14 @@ class CitiesController < ApplicationController
       redirect_to cities_path
     end
   end
+
   def update
     @city = City.find(params[:city_id])
     @city.update(city_params)
     flash[:notice]="City Succesfully Updated!"
     redirect_to city_path(@city)
   end
+
   def destroy
     @city = City.find(params[:city_id])
     if current_user
@@ -46,6 +52,7 @@ class CitiesController < ApplicationController
       redirect_to cities_path
     end
   end
+
   private
   def city_params
     params.require(:city).permit(:name,:image)

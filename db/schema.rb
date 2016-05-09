@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509170357) do
+ActiveRecord::Schema.define(version: 20160509220300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,28 +44,31 @@ ActiveRecord::Schema.define(version: 20160509170357) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "city_id"
+    t.integer  "comment_id"
   end
 
   add_index "posts", ["city_id"], name: "index_posts_on_city_id", using: :btree
+  add_index "posts", ["comment_id"], name: "index_posts_on_comment_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
     t.string   "current_city"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
+    t.integer  "comment_id"
   end
+
+  add_index "users", ["comment_id"], name: "index_users_on_comment_id", using: :btree
 
   add_foreign_key "cities", "posts"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "posts", "cities"
+  add_foreign_key "posts", "comments"
   add_foreign_key "posts", "users"
+  add_foreign_key "users", "comments"
 end

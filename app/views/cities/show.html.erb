@@ -1,7 +1,6 @@
 <div class="container col-md-10 col-md-offset-1">
   <div class="row">
     <h1><%=@city.name%></h1>
-    <!-- <img class="img-responsive" src="<%= @city.image %>"> -->
     <%= image_tag @city.image, class: "img-responsive"%>
     <h3>See what people are saying about <%=@city.name%></h3>
   </div>
@@ -26,7 +25,6 @@
   <div class="row buttons">
     <% if current_user%>
       <%= button_to "Add New Post", new_post_path, :method => "get", class: "btn btn-small btn-success" %>
-      <%= button_to "Edit", city_edit_path, :method => "get", class: "btn btn-small btn-info" %>
       <%= button_to "Back to Cities", cities_path, :method => "get", class: "btn btn-small btn-primary" %>
     <% else %>
       <%= button_to "Log In", login_path, :method => "get", class: "btn btn-small btn-info"%>
