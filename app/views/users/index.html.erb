@@ -2,7 +2,8 @@
   <div class="container">
     <h1>Vagabond</h1>
     <p>Login and enjoy our website</p>
-    <p>Where you can travel to San Francisco, London and Gilbraltar by reading user's reviews or create your own post and share your comments on other posts</p>
+    <p>Where you can travel to San Francisco, London and Gilbraltar by reading user reviews or</p>
+    <p>create your own post and share your comments</p>
     <% if !current_user  %>
     <p><a class="btn btn-primary btn-lg" href="/users/new" role="button">Sign Up  &raquo;</a></p>
     <% end %>
@@ -10,10 +11,6 @@
 </div>
 <!-- Example row of columns -->
 <div class="container col-md-10 col-md-offset-1">
-  <h1>Welcome to Users Index.</h1>
-  <div>
-    There are currently <%= @users.length %> signed_up
-  </div>
   <div class="row">
     <div class="col-md-4">
       <h2>San Francisco</h2>
