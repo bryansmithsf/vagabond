@@ -1,10 +1,16 @@
-<%= form_for [@city,@post] do |f| %>
-  <div>
-    <%= f.text_field :title, placeholder: "Title" %>
+<div class="col-md-6 col-md-offset-3">
+  <h2>New Post for <%=@city.name%></h2>
+  <div class="form-group">
+    <%= form_for [@city,@post] do |f| %>
+      <div>
+        <%= f.text_field :title, placeholder: "Title", class:"form-control" %>
+      </div>
+      <br>
+      <div>
+        <%= f.text_area :text, placeholder: "Text", size:"60x10", class:"form-control" %>
+      </div>
+      <div>
+      <%= f.submit "Submit", class:"btn btn-primary" %>
+    <% end %>
   </div>
-  <div>
-    <%= f.text_area :text, placeholder: "Text", size:"60x10" %>
-  </div>
-  <div>
-  <%= f.submit "Submit" %>
-<% end %>
+</div>

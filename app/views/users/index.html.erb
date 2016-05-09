@@ -1,7 +1,9 @@
 <div class="jumbotron">
   <div class="container">
-    <h1>Hello, world!</h1>
-    <p>Cold chicken claw xo spicy rice noodle roll honey glazed BBQ pork soy sauce chicken roast duck golden pumpkin fries soy sauce duck wings octopus seaweed sauteed string beans beef shank pork.</p>
+    <h1>Vagabond</h1>
+    <p>Login and enjoy our website</p>
+    <p>Where you can travel to San Francisco, London and Gilbraltar by reading user reviews or</p>
+    <p>create your own post and share your comments</p>
     <% if !current_user  %>
     <p><a class="btn btn-primary btn-lg" href="/users/new" role="button">Sign Up  &raquo;</a></p>
     <% end %>
@@ -9,25 +11,21 @@
 </div>
 <!-- Example row of columns -->
 <div class="container col-md-10 col-md-offset-1">
-  <h1>Welcome to Users Index.</h1>
-  <div>
-    There are currently <%= @users.length %> signed_up
-  </div>
   <div class="row">
     <div class="col-md-4">
-      <h2>Heading</h2>
-      <p>Tofu with syrup Jin deui Chicken feet Potstickers stir fried radish cake. Beef shank pork spiced salt baked octopus Fung zao Ngao yuk kau Pai gwut Ma lai go Do fu fa. </p>
-      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+      <h2>San Francisco</h2>
+      <p>Discover San Francisco, a west coast city that reaches great heights. Its hills steep, its bridges esteemed, and its vistas incomparable, this energetic bohemian outpost packs a lot into its 7x7 mile environs. San Francisco's neighborhoods and the locals that love them each tell their own story. Take the time to speak with them and you'll learn a lot—you're likely to find a resident that spends the extra time to help you get where you want to go, and then suggests a spot they know that you just might like even better.</p>
+      <%= button_to "View Details", city_path(1), :method => "get", class:"btn btn-default" %>
     </div>
     <div class="col-md-4">
-      <h2>Heading</h2>
-      <p>Haam sui gau Jiu cai bau Zhaliang Pei guen Lo baak gou Taro cake Deep fried pumpkin and egg-yolk ball. Congee Shangai steam buns chicken feet mini egg tarts steamed sponge cake tofu with syrup Jin deui Chicken feet Potstickers stir fried radish cake. </p>
-      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+      <h2>London</h2>
+      <p>At one time it was the largest city in the world. Today, although exceeded by several megacities on different continents, London remains a city that fascinates and attracts millions of visitors each year. And for good reason. It is one of those great " world cities " cosmopolitan centers that offer the visitor not just an unparalleled choice of museums and monuments, but also an unforgettable experience and a change of scenery . London is London , and no other city in the world is like it.</p>
+      <%= button_to "View Details", city_path(2), :method => "get", class:"btn btn-default" %>
     </div>
     <div class="col-md-4">
-      <h2>Heading</h2>
-      <p>Deep fried seaweed roll BBQ pork puff Pan friend pork dumpling Pot sticker water chestnut cake bitter melon beef dumplings turnip cake leek dumplings deep fried taro turnover Cha siu sou. Black sesame soft ball deep fried bean curd skin rolls rice noodle roll deep fried crab claw soup dumpling cold chicken claw xo spicy rice noodle roll honey glazed BBQ pork soy sauce chicken.</p>
-      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+      <h2>Gilbrator</h2>
+      <p>Gibraltar is a unique place for the curious traveler. Take time to explore the caves and tunnels especially those not meant for tourists! The inside of the rock is an absolute labyrinth with secret internal roads and tunnels four times longer than those on the surface. Military presence and security in this otherwise deserted area is strong but almost invisible.</p>
+      <%= button_to "View Details", city_path(3), :method => "get", class:"btn btn-default" %>
     </div>
   </div>
 </div>
