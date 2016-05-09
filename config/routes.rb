@@ -13,14 +13,6 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy"
   post "/sessions", to: "sessions#create"
 
-  get "/posts", to: "posts#index", as: "posts"
-  get "posts/new", to:"posts#new", as: "post_new"
-  get "/posts/:post_id", to:"posts#show", as: "post"
-  post "/posts", to:"posts#create"
-  get "/posts/:post_id/edit", to: "posts#edit",as:"post_edit"
-  patch "/posts/:post_id", to:"posts#update"
-  delete "/posts/:post_id", to:"posts#destroy"
-
   get "/cities", to: "cities#index", as: "cities"
   get "/cities/new", to:"cities#new", as: "city_new"
   get "/cities/:city_id", to:"cities#show", as: "city"
@@ -35,7 +27,7 @@ Rails.application.routes.draw do
   get "/cities/:city_id/posts", to:"post_cities#index"
   get "/cities/:city_id/posts/:post_id/edit", to:"post_cities#edit", as:"post_city_edit"
   patch "/cities/:city_id/posts/:post_id", to:"post_cities#update"
-  delete "/cities/:city_id/posts/:post_id", to:"post_cities#destroy"
+  delete "/cities/:city_id/posts/:post_id", to:"post_cities#destroy", as:"post_destroy"
 
   get "/cities/:city_id/posts/:post_id/comments", to:"comments#new", as: "new_comment"
   post "/cities/:city_id/posts/:post_id/comments", to:"comments#create"
