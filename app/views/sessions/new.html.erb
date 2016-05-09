@@ -1,6 +1,35 @@
-Login
+<section class="lgncnt">
+  <%= form_for @user, url: "/sessions", method: "post" do |f| %>
+    <div class="login">
+      <div><i></i>
+        <span>member login</span>
+        <p>Lorem ipsum dolor sit amet <b>consectetur adipiscing</b></p>
+      </div>
 
-<div class="col-md-4 col-md-offset-2">
+      <div>
+        <%= f.text_field :email, placeholder: "Email", class:"form-control" %>
+        <%= f.password_field :password, placeholder: "Password", class:"form-control" %>
+      </div>
+
+      <div>
+        <input type="checkbox" id="remberme"/>
+        <label for="remberme">Remember me</label>
+        <a>forgot password ?</a>
+      </div>
+
+      <div>
+        <%= f.submit "Sign In", class:"btn btn-success" %>
+      </div>
+
+      <div>
+        <p>hello there.com</p>
+      </div>
+    </div>
+  <% end %>
+</section>
+
+
+<!-- <div class="col-md-4 col-md-offset-4">
 <%= form_for @user, url: "/sessions", method: "post" do |f| %>
   <div>
     <%= f.text_field :email, placeholder: "Email", class:"form-control" %>
@@ -8,6 +37,6 @@ Login
   <div>
     <%= f.password_field :password, placeholder: "Password", class:"form-control" %>
   </div>
-  <%= f.submit "Sign In" %>
+  <%= f.submit "Sign In", class:"btn btn-success" %>
 <% end %>
-</div>
+</div> -->

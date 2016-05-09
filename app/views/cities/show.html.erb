@@ -1,19 +1,34 @@
-<h1><%=@city.name %></h1>
-
-<img class="img-responsive" src="<%= @city.image %>">
-
-<h4>See what people are saying about <%=@city.name%></h4>
-<ul>
-<% @posts.each do |post| %>
-  <h3> <%=link_to post.title, city_post_path(@city,post)%> </h3>
-  <%= post.text %>
-  <strong>Written By:</strong><%= post.user.first_name %>
-  <%= button_to 'Delete Post', city_post_path(@city,post), :method => :delete, data: {:confirm=>'Are you sure you want to delete '+post.title+'?'}, class:"btn btn-danger" %>
-  <%= link_to "Edit Post", post_city_edit_path(@city,post),  :class=>"btn btn-small btn-warning" %>
-<% end %>
-</ul>
-
-<%= button_to "Add New Post", new_post_path, :method => "get", class: "btn-small btn-warning" %>
-<%= link_to "Edit City", city_edit_path %>
-<%= link_to "Cities Index", cities_path %>
-<%= button_to "Delete City", @city, method: :delete, class: "btn btn-small btn-primary" %>
+<div class="container col-md-10 col-md-offset-1">
+  <div class="row">
+    <h1><%=@city.name%></h1>
+    <img class="img-responsive" src="<%= @city.image %>">
+    <h3>See what people are saying about <%=@city.name%></h3>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+    <% @posts.each do |post| %>
+      <h3> <%=link_to post.title, city_post_path(@city,post)%> </h3>
+      <p>
+        <%= post.text %>
+      </p>
+      <h4>
+        <strong>Written by: </strong><%= post.user.first_name %>
+      </h4>
+      <% if current_user %>
+        <%= button_to 'Delete Post', city_post_path(@city,post), :method => :delete, data: {:confirm=>'Are you sure you want to delete '+post.title+'?'}, class:"btn btn-danger" %>
+        <%= link_to "Edit Post", post_city_edit_path(@city,post),  :class=>"btn btn-small btn-warning" %>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+  <div class="row buttons">
+    <% if current_user%>
+      <%= button_to "Add New Post", new_post_path, :method => "get", class: "btn btn-small btn-success" %>
+      <%= button_to "Edit", city_edit_path, :method => "get", class: "btn btn-small btn-info" %>
+      <%= button_to "Back to Cities", cities_path, :method => "get", class: "btn btn-small btn-primary" %>
+    <% else %>
+      <%= button_to "Log In", login_path, :method => "get", class: "btn btn-small btn-info"%>
+      <%= button_to "Back to Cities", cities_path, :method => "get", class: "btn btn-small btn-primary" %>
+    <% end %>
+  </div>
+</div>

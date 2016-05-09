@@ -24,44 +24,31 @@
             <li><%= link_to "Home", root_path %></li>
             <% if current_user %>
               <li><%= link_to "Profile", user_path(current_user) %></li>
-              <li><%= link_to "View Posts", posts_path %></li>
-              <li><%= link_to "View Cities", cities_path %></li>
+              <li><%= link_to "Posts", posts_path %></li>
+              <li><%= link_to "Cities", cities_path %></li>
               <li><%= link_to "Log Out", logout_path %></li>
             <% else %>
               <li><%= link_to "Create Account", new_user_path %></li>
               <li><%= link_to "Log In", login_path %></li>
             <% end %>
           </ul>
-          <% if current_user == nil %>
-            <form class="navbar-form navbar-right">
-              <%= form_for :user, url: "/sessions", method: "post" do |f| %>
-                <div class="form-group">
-                  <%= f.text_field :email, placeholder: "Email", class:"form-control" %>
-                </div>
-                <div class="form-group">
-                  <%= f.password_field :password, placeholder: "Password", class:"form-control" %>
-                </div>
-                <%= f.submit "Sign In", class:"btn btn-success" %>
-              <% end %>
-            </form>
-          <% end %>
-
         </div>
       </div>
     </nav>
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
     <%= render "partials/jumbotron" %>
-      <%= yield %>
 
-      <div class="container">
+    <div class="container flash-msg">
+      <font color="red">
         <% flash.each do |name, msg| %>
-        <p>
-          <small> <%= name.capitalize %>: <%= msg %> </small>
-        </p>
-
+        <h1>
+          <%= name.capitalize %>: <%= msg %>
+        </h1>
         <% end %>
-      </div>
+      </font>
+    </div>
+
+    <%= yield %>
     <%= render "partials/footer" %>
-</body>
+  </body>
 </html>
