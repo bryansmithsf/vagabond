@@ -1,4 +1,4 @@
-  Welcome, <%= @user.email %>
+
   <%# image_tag @user.avatar.url(:medium) %>
 <div class="container">
   <div class="col-md-4">
@@ -22,13 +22,19 @@
           <th>Current City: </th>
             <td><%= @user.current_city %></td>
         </tr>
+        <tr>
+          <th>Joined Date:</th>
+            <td><%= @user.created_at %></td>
+        </tr>
       </tbody>
-      Joined on: <%= @user.created_at %>
+      Welcome, <%= @user.email %>
+      <br>
+
     </table>
-    <%= link_to "Edit User", user_edit_path, class:"btn btn-info" %>
+    <%= link_to "Edit Profile", user_edit_path, class:"btn btn-info" %>
   </div>
 
-  <div class=col-md-8>
+  <div class="col-md-8">
     <h2><%= @user.first_name %>'s Posts</h2>
     <hr>
     <% @posts.each do |p| %>
