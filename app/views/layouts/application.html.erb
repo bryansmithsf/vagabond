@@ -52,16 +52,15 @@
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <%= render "partials/jumbotron" %>
+    <div class="container">
+      <% flash.each do |name, msg| %>
+      <p>
+        <small> <%= name.capitalize %>: <%= msg %> </small>
+      </p>
+
+      <% end %>
+    </div>
       <%= yield %>
-
-      <div class="container">
-        <% flash.each do |name, msg| %>
-        <p>
-          <small> <%= name.capitalize %>: <%= msg %> </small>
-        </p>
-
-        <% end %>
-      </div>
     <%= render "partials/footer" %>
 </body>
 </html>

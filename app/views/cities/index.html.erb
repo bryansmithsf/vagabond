@@ -4,5 +4,5 @@
 </div>
 <% @cities.each do |c| %>
 <img class="img-responsive" src="<%= c.image %>">
-City Name: <%=link_to c.name, city_path(c) %>
+<h3>City Name: <%=link_to c.name, city_path(c) %></h3>
 <% end %>

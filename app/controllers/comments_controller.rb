@@ -57,7 +57,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.find(params[:comment_id])
     if current_user
       @post.comments.destroy(@comment)
-      flash[:notice]="Succesfully deleted Post!"
+      flash[:notice]="Succesfully deleted comment!"
       redirect_to city_post_path(@city,@post)
     else
       flash[:notice]="You are not authorized to delete Posts!"
