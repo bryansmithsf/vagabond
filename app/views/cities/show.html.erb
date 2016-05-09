@@ -1,16 +1,19 @@
-<h1><%=@city.name %></h1>
-
-<img class="img-responsive" src="<%= @city.image %>">
-
-<h4>See what people are saying about <%=@city.name%></h4>
-
 <div class="container col-md-10 col-md-offset-1">
+  <div class="row">
+    <h1><%=@city.name%></h1>
+    <img class="img-responsive" src="<%= @city.image %>">
+    <h3>See what people are saying about <%=@city.name%></h3>
+  </div>
   <div class="row">
     <div class="col-md-8">
     <% @posts.each do |post| %>
       <h3> <%=link_to post.title, city_post_path(@city,post)%> </h3>
-      <%= post.text %>
-      <strong>Written By:</strong><%= post.user.first_name %>
+      <p>
+        <%= post.text %>
+      </p>
+      <h4>
+        <strong>Written by: </strong><%= post.user.first_name %>
+      </h4>
       <% if current_user %>
         <%= button_to 'Delete Post', city_post_path(@city,post), :method => :delete, data: {:confirm=>'Are you sure you want to delete '+post.title+'?'}, class:"btn btn-danger" %>
         <%= link_to "Edit Post", post_city_edit_path(@city,post),  :class=>"btn btn-small btn-warning" %>
