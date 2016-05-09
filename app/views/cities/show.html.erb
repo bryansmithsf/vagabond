@@ -1,7 +1,8 @@
 <div class="container col-md-10 col-md-offset-1">
   <div class="row">
     <h1><%=@city.name%></h1>
-    <img class="img-responsive" src="<%= @city.image %>">
+    <!-- <img class="img-responsive" src="<%= @city.image %>"> -->
+    <%= image_tag @city.image %>
     <h3>See what people are saying about <%=@city.name%></h3>
   </div>
   <div class="row">
