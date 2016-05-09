@@ -41,7 +41,7 @@
                 <div class="form-group">
                   <%= f.password_field :password, placeholder: "Password", class:"form-control" %>
                 </div>
-                <%= f.submit "Sign In", class:"btn btn-success" %>
+                <%= f.submit "Sign In", class:"btn btn-primary" %>
               <% end %>
             </form>
           <% end %>
@@ -51,17 +51,17 @@
     </nav>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <%= render "partials/jumbotron" %>
-      <%= yield %>
-
-      <div class="container">
+    <%= yield %>
+    <div class="container">
+      <font color="red">
         <% flash.each do |name, msg| %>
         <p>
           <small> <%= name.capitalize %>: <%= msg %> </small>
         </p>
-
         <% end %>
-      </div>
+      </font>
+    </div>
+    <hr>
     <%= render "partials/footer" %>
 </body>
 </html>
