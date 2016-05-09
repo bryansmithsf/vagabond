@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
     @user.try(:authenticate, params[:password])
   end
   validates :email, uniqueness: true
+  has_many :comments
   # has_attached_file :avatar,
   #                 :styles => { :medium => "150x150>", :thumb => "44x44#>" },
   #                 :storage => :s3,

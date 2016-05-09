@@ -3,6 +3,14 @@
   <strong>Title:</strong><%= @post.title %>
   <strong>Text:</strong><%= @post.text %>
   <strong>Written By:</strong><%= @user.first_name %>
+  <h4><strong>Comments:</strong> <% @comments.each do |c| %></h4>
+    <%= c.body %>
+    <%= button_to "Delete Comment", comment_destroy_path(@city,@post,c), method: :delete, class: "btn btn-small btn-secondary" %>
+    <%= button_to "Edit Comment", city_post_comment_path(@city,@post,c), method: :get, class: "btn btn-small btn-warning" %>
+      <br>
+      <% end %>
+      <br>
+ <%=  link_to "Add Comment", new_comment_path(@city,@post),:class =>"btn btn-primary" %>
   <%= button_to 'Delete Post', city_post_path(@city,@post), :method => :delete, data: {:confirm=>'Are you sure you want to delete '+@post.title+'?'}, class:"btn btn-danger" %>
   <%= link_to "Edit Post", post_city_edit_path(@city, @post),  :class=>"btn btn-small btn-warning" %>
   <br>

@@ -37,7 +37,6 @@
     </nav>
 
     <%= render "partials/jumbotron" %>
-
     <div class="container flash-msg">
       <font color="red">
         <% flash.each do |name, msg| %>
@@ -47,7 +46,6 @@
         <% end %>
       </font>
     </div>
-
     <%= yield %>
     <%= render "partials/footer" %>
   </body>
