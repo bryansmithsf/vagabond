@@ -38,16 +38,17 @@
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <%= render "partials/jumbotron" %>
-      <%= yield %>
 
-      <div class="container">
-        <% flash.each do |name, msg| %>
-        <p>
-          <small> <%= name.capitalize %>: <%= msg %> </small>
-        </p>
+    <div class="container flash-msg">
+      <% flash.each do |name, msg| %>
+      <h1>
+        <%= name.capitalize %>: <%= msg %>
+      </h1>
+      <% end %>
+    </div>
 
-        <% end %>
-      </div>
+    <%= yield %>
+
     <%= render "partials/footer" %>
 </body>
 </html>
