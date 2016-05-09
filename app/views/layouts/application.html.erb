@@ -39,15 +39,16 @@
     <%= render "partials/jumbotron" %>
 
     <div class="container flash-msg">
-      <% flash.each do |name, msg| %>
-      <h1>
-        <%= name.capitalize %>: <%= msg %>
-      </h1>
-      <% end %>
+      <font color="red">
+        <% flash.each do |name, msg| %>
+        <h1>
+          <%= name.capitalize %>: <%= msg %>
+        </h1>
+        <% end %>
+      </font>
     </div>
 
     <%= yield %>
-
     <%= render "partials/footer" %>
-</body>
+  </body>
 </html>
