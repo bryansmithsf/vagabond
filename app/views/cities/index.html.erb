@@ -1,8 +1,10 @@
-<h1>Welcome to Cities Index.</h1>
-<div>
-  There are currently <%= @cities.length %> cities in the database.
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <% @cities.each do |c| %>
+        <h1><%=link_to c.name, city_path(c) %></h1>
+        <img class="img-responsive" src="<%= c.image %>">
+      <% end %>
+    </div>
+  </div>
 </div>
-<% @cities.each do |c| %>
-<img class="img-responsive" src="<%= c.image %>">
-City Name: <%=link_to c.name, city_path(c) %>
-<% end %>
