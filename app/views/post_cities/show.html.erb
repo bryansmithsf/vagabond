@@ -1,17 +1,51 @@
-
-<h3>Post Show Page</h3>
-  <strong>Title:</strong><%= @post.title %>
-  <strong>Text:</strong><%= @post.text %>
-  <strong>Written By:</strong><%= @user.first_name %>
-  <h4><strong>Comments:</strong> <% @comments.each do |c| %></h4>
-    <%= c.body %>
-    <%= button_to "Delete Comment", comment_destroy_path(@city,@post,c), data: {:confirm=>'Are you sure you want to delete this comment?'},method: :delete, class: "btn btn-small btn-secondary" %>
-    <%= button_to "Edit Comment", city_post_comment_path(@city,@post,c), method: :get, class: "btn btn-small btn-warning" %>
-      <br>
-      <% end %>
-      <br>
- <%=  link_to "Add Comment", new_comment_path(@city,@post),:class =>"btn btn-primary" %>
-  <%= button_to 'Delete Post', city_post_path(@city,@post), :method => :delete, data: {:confirm=>'Are you sure you want to delete '+@post.title+'?'}, class:"btn btn-danger" %>
-  <%= link_to "Edit Post", post_city_edit_path(@city, @post),  :class=>"btn btn-small btn-warning" %>
-  <br>
-<%= link_to "Cities Index", cities_path, :class=> "btn btn-small btn-success" %>
+<div class="container">
+  <div class="col-md-10 col-md-offset-1">
+<h2>Show Post</h2>
+<%= link_to "Back to Cities Index", cities_path, :class=> "btn btn-small btn-default pull-right" %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= @post.title %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Text:</th>
+        <td><%= @post.text %></td>
+      </tr>
+      <tr>
+        <th>Written By:</th>
+        <td><%= @user.first_name %></td>
+      </tr>
+    </tbody>
+  </table>
+    <%= link_to "Add Comment", new_comment_path(@city,@post),:class =>"btn btn-small btn-primary" %>
+    <%= button_to 'Delete Post', city_post_path(@city,@post), :method => :delete, data: {:confirm=>'Are you sure you want to delete '+@post.title+'?'}, class:"btn btn-small btn-danger" %>
+    <%= link_to "Edit Post", post_city_edit_path(@city, @post),  :class=>"btn btn-small btn-warning" %>
+  <div class="container">
+    <div class="col-md-6">
+      <h4><strong>Comments:</strong>
+        <% @comments.each do |c| %></h4>
+        <table class="table table-striped">
+          <tbody>
+            <tr>
+              <th>Text:</th>
+              <td><%= c.body %></td>
+            </tr>
+            <tr>
+              <th>Written By:</th>
+              <td><%= c.user.first_name %></td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <%= button_to "Delete Comment", comment_destroy_path(@city,@post,c), data: {:confirm=>'Are you sure you want to delete this comment?'},method: :delete, class: "btn btn-small btn-danger" %>
+        <%= button_to "Edit Comment", city_post_comment_path(@city,@post,c), method: :get, class: "btn btn-small btn-warning" %>
+          <br>
+          <% end %>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
