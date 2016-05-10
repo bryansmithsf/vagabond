@@ -1,6 +1,11 @@
-<%= form_for [@city,@post,@comment] do |f| %>
-  <div>
-    <%= f.text_area :body, placeholder: "Comment Body", size:"60x10" %>
+<div class="col-md-4 col-md-offset-4">
+  <h2>Edit Comment</h2>
+  <div class="form-group">
+    <%= form_for [@city,@post,@comment] do |f| %>
+      <div>
+        <%= f.text_area :body, placeholder: "Comment Body", size:"60x10", class:"form-control" %>
+      </div>
+      <%= f.submit "Submit", formaction:comment_update_path(@city,@post,@comment), class:"btn btn-primary" %>
+    <% end %>
   </div>
-  <%= f.submit "Submit", formaction:comment_update_path(@city,@post,@comment) %>
-<% end %>
+</div>
