@@ -1,28 +1,28 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Pathfinder: A way to share you experiences and learn about San Francisco, London
+and Gibraltar
 
-Things you may want to cover:
+Here, you will be able to read other users posts and comments on posts for
+San Francisco, London and Gibralter. You can also choose to sign up as a user
+and create your own posts, and comment on other users posts. You will have
+control to edit your profile and edit and delete your posts and comments.
 
-* Ruby version
+We approached this project with the focus of completing a fully functioning
+application with additional possible functions available, before moving forward
+with styling and flow. This allowed us only needing to remove the funtionality
+we rendered useless. (start big, slim down approach)
 
-* System dependencies
+We were able to divide the tasks early on, that were conducive to what the
+members preferred to work on. But later on, tasks were needed to be taken on,
+regardless of preference. Generally speaking, we were able to take part
+in every aspect of the project at some point.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+We were able to track project progress with Trello and slack, and for those that
+were unable to meet up for pair programming, we were able to have them perform
+stand-alone tasks.
 
 
-Please feel free to use a different markup language if you do not plan to run
+
+
 <tt>rake doc:app</tt>.
